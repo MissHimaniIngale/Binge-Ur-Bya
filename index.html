@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Binge ur ब्या — Celebrating Every Wedding</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=Cormorant:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&family=Cinzel:wght@400;600;700&family=Jost:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;700;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div class="aur parallax p-slow"></div>
+<div class="stars-wrap parallax p-slow"></div>
+<div class="aur-b a1 parallax p-medium"></div>
+<div class="aur-b a2 parallax p-medium"></div>
+<div class="aur-b a3 parallax p-medium"></div>
+<div class="hero-in parallax p-fast"></div>
+
+<div class="cur-a" id="ca"></div>
+<div class="cur-b" id="cb"></div>
+
+<!-- ══════════════════════════════════
+     PRELOADER — Mandap Logo
+══════════════════════════════════ -->
+<div id="pl">
+  <svg class="pl-logo" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="plg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#E8357A"/><stop offset="50%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#1D4ED8"/>
+      </linearGradient>
+      <linearGradient id="plpk" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#F472B6"/><stop offset="100%" stop-color="#E8357A"/>
+      </linearGradient>
+      <linearGradient id="plbl" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#1D4ED8"/>
+      </linearGradient>
+      <linearGradient id="plgd" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#FDE68A"/>
+      </linearGradient>
+      <linearGradient id="plfire" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="#F59E0B"/><stop offset="50%" stop-color="#EF4444"/><stop offset="100%" stop-color="#FCD34D" stop-opacity="0.2"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Arch draw animation — left pillar -->
+    <rect x="40" y="60" width="13" height="110" rx="2" fill="url(#plg)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="0.1s"/>
+      <animate attributeName="height" from="0" to="110" dur="0.6s" fill="freeze" begin="0.1s" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+    </rect>
+    <!-- Right pillar -->
+    <rect x="147" y="60" width="13" height="110" rx="2" fill="url(#plg)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="0.1s"/>
+      <animate attributeName="height" from="0" to="110" dur="0.6s" fill="freeze" begin="0.1s" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+    </rect>
+
+    <!-- Main arch dome (draws itself) -->
+    <path d="M 40,60 Q 40,10 100,10 Q 160,10 160,60"
+      fill="none" stroke="url(#plg)" stroke-width="11" stroke-linecap="round"
+      stroke-dasharray="280" stroke-dashoffset="280">
+      <animate attributeName="stroke-dashoffset" from="280" to="0" dur="1s" fill="freeze" begin="0.4s" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+    </path>
+
+    <!-- Inner arch (thinner) -->
+    <path d="M 52,60 Q 52,24 100,24 Q 148,24 148,60"
+      fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" opacity="0.45"
+      stroke-dasharray="220" stroke-dashoffset="220">
+      <animate attributeName="stroke-dashoffset" from="220" to="0" dur="0.9s" fill="freeze" begin="0.6s"/>
+    </path>
+
+    <!-- Finial balls on pillars -->
+    <circle cx="46" cy="58" r="7" fill="url(#plgd)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="0.9s"/>
+      <animateTransform attributeName="transform" type="scale" values="0;1.2;1" dur="0.5s" fill="freeze" begin="0.9s" additive="sum"/>
+    </circle>
+    <circle cx="154" cy="58" r="7" fill="url(#plgd)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="0.9s"/>
+    </circle>
+    <!-- Top finial -->
+    <circle cx="100" cy="8" r="9" fill="url(#plgd)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="1s"/>
+    </circle>
+    <circle cx="100" cy="8" r="15" fill="none" stroke="url(#plgd)" stroke-width="1.5" opacity="0">
+      <animate attributeName="opacity" from="0" to="0.5" dur="0.4s" fill="freeze" begin="1s"/>
+      <animate attributeName="r" values="9;18;15" dur="0.6s" fill="freeze" begin="1s"/>
+    </circle>
+
+    <!-- Garland 1 — pink, pops in -->
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="1.1s"/>
+      <path d="M 46,58 Q 65,38 80,34 Q 100,30 120,34 Q 135,38 154,58"
+        fill="none" stroke="url(#plpk)" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="46"  cy="58" r="5"   fill="#F472B6"/>
+      <circle cx="65"  cy="40" r="4"   fill="#FDE68A"/>
+      <circle cx="84"  cy="34" r="4.5" fill="#F472B6"/>
+      <circle cx="100" cy="31" r="5.5" fill="#60A5FA"/>
+      <circle cx="116" cy="34" r="4.5" fill="#F472B6"/>
+      <circle cx="135" cy="40" r="4"   fill="#FDE68A"/>
+      <circle cx="154" cy="58" r="5"   fill="#F472B6"/>
+    </g>
+
+    <!-- Garland 2 — blue, secondary -->
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="1.25s"/>
+      <path d="M 53,78 Q 68,64 82,61 Q 100,58 118,61 Q 132,64 147,78"
+        fill="none" stroke="url(#plbl)" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+      <circle cx="74"  cy="63" r="2.5" fill="#60A5FA" opacity="0.9"/>
+      <circle cx="100" cy="59" r="3"   fill="#FDE68A"/>
+      <circle cx="126" cy="63" r="2.5" fill="#60A5FA" opacity="0.9"/>
+    </g>
+
+    <!-- Fire — appears last with flicker -->
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="1.4s"/>
+      <!-- Kund platform -->
+      <rect x="86" y="152" width="28" height="7" rx="2" fill="#F59E0B" opacity="0.65"/>
+      <!-- Flames -->
+      <path d="M 100,152 Q 95,140 97,128 Q 100,118 103,128 Q 105,140 100,152 Z" fill="url(#plfire)">
+        <animateTransform attributeName="transform" type="scale" values="1,1;0.9,1.1;1.05,0.95;1,1" dur="0.6s" repeatCount="indefinite" additive="sum" begin="1.4s"/>
+      </path>
+      <path d="M 94,152 Q 91,143 92,135 Q 94,128 96,135 Q 97,143 94,152 Z" fill="#F59E0B" opacity="0.75">
+        <animateTransform attributeName="transform" type="scale" values="1,1;1.1,0.9;0.95,1.05;1,1" dur="0.5s" repeatCount="indefinite" additive="sum" begin="1.4s"/>
+      </path>
+      <path d="M 106,152 Q 109,143 108,135 Q 106,128 104,135 Q 103,143 106,152 Z" fill="#F59E0B" opacity="0.75">
+        <animateTransform attributeName="transform" type="scale" values="1,1;0.95,1.1;1.1,0.9;1,1" dur="0.7s" repeatCount="indefinite" additive="sum" begin="1.4s"/>
+      </path>
+    </g>
+
+    <!-- Base step platform -->
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" fill="freeze" begin="0.8s"/>
+      <rect x="28" y="170" width="144" height="9" rx="3" fill="url(#plg)" opacity="0.7"/>
+      <rect x="18" y="178" width="164" height="7" rx="3" fill="url(#plg)" opacity="0.45"/>
+      <rect x="8"  y="184" width="184" height="6" rx="3" fill="url(#plg)" opacity="0.25"/>
+      <!-- Dot pattern on base -->
+      <g fill="url(#plgd)" opacity="0.55">
+        <circle cx="35"  cy="174" r="2"/><circle cx="55"  cy="174" r="2"/>
+        <circle cx="75"  cy="174" r="2"/><circle cx="100" cy="174" r="2"/>
+        <circle cx="125" cy="174" r="2"/><circle cx="145" cy="174" r="2"/>
+        <circle cx="165" cy="174" r="2"/>
+      </g>
+    </g>
+
+    <!-- Celebration sparkles -->
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="1.5s"/>
+      <!-- Left sparkle -->
+      <circle cx="22" cy="70" r="3" fill="#FDE68A"><animate attributeName="r" values="2;4;2" dur="2s" repeatCount="indefinite"/></circle>
+      <line x1="22" y1="60" x2="22" y2="56" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="14" y1="68" x2="10" y2="66" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="30" y1="64" x2="34" y2="62" stroke="#F472B6" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Right sparkle -->
+      <circle cx="178" cy="70" r="3" fill="#FDE68A"><animate attributeName="r" values="2;4;2" dur="2s" repeatCount="indefinite" begin=".5s"/></circle>
+      <line x1="178" y1="60" x2="178" y2="56" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="186" y1="68" x2="190" y2="66" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="170" y1="64" x2="166" y2="62" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Top sparkles -->
+      <circle cx="70"  cy="100" r="2" fill="#F472B6"><animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite"/></circle>
+      <circle cx="130" cy="100" r="2" fill="#60A5FA"><animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" begin=".8s"/></circle>
+      <circle cx="50"  cy="120" r="1.5" fill="#FDE68A"><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="1.2s"/></circle>
+      <circle cx="150" cy="120" r="1.5" fill="#FDE68A"><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin=".3s"/></circle>
+    </g>
+  </svg>
+
+  <!-- Wordmark -->
+  <div style="opacity:0;animation:plFadeUp .4s ease 1.6s forwards;overflow:visible">
+    <div class="logo logo-pl">
+      <div class="binge-row">
+        <span class="lt lB">B</span><span class="lt li">i</span><span class="lt ln">n</span><span class="lt lg">g</span><span class="lt le">e</span>
+      </div>
+      <div class="line-zone">
+        <div class="the-line"><div class="line-tip"></div><div class="thread"></div></div>
+        <div class="bya-wrap"><span class="bya">ब्या</span><span class="bya-sh">ब्या</span></div>
+      </div>
+      <div class="ur-row">
+        <div class="orn orn-l"></div><span class="ur">ur</span><div class="orn orn-r"></div>
+      </div>
+    </div>
+  </div>
+      <div class="wm-bya-wrap"><div class="wm-bya-thread"></div><span class="wm-bya">ब्या</span>
+        <span class="wm-bya-sh">ब्या</span>
+      </div>
+      <div class="wm-dots"><div class="wm-dot"></div><div class="wm-dot"></div><div class="wm-dot"></div></div>
+    </div>
+  </div>
+  <div class="pl-tag">Where Celebrations Begin · जहाँ उत्सव शुरू होता है</div>
+  <div class="pl-bar"><div class="pl-fill"></div></div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="#" class="nbrand" style="text-decoration:none;display:block;overflow:visible">
+    <div class="logo logo-nav">
+      <div class="binge-row">
+        <span class="lt lB">B</span><span class="lt li">i</span><span class="lt ln">n</span><span class="lt lg">g</span><span class="lt le">e</span>
+      </div>
+      <div class="line-zone">
+        <div class="the-line"><div class="line-tip"></div><div class="thread"></div></div>
+        <div class="bya-wrap"><span class="bya">ब्या</span><span class="bya-sh">ब्या</span></div>
+      </div>
+      <div class="ur-row">
+        <div class="orn orn-l"></div><span class="ur">ur</span><div class="orn orn-r"></div>
+      </div>
+    </div>
+  </a>
+  <ul class="nlinks">
+    <li><a href="#styles">Styles</a></li>
+    <li><a href="#cats">Services</a></li>
+    <li><a href="#ven">Vendors</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#why">Why Us</a></li>
+  </ul>
+  <div class="nacts">
+    <button class="nb1" onclick="openM('vendor')">List Business</button>
+    <button class="nb2" onclick="openM('customer')">Plan My Wedding</button>
+  </div>
+  <button class="ham" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker" style="position:relative;z-index:900">
+  <div class="tick-in">
+    <span class="tick-i">Hindu Weddings</span><span class="tick-i">Muslim Weddings</span>
+    <span class="tick-i">Punjabi Weddings</span><span class="tick-i">Christian Weddings</span>
+    <span class="tick-i">Maharashtrian</span><span class="tick-i">South Indian</span>
+    <span class="tick-i">Mehendi Artists</span><span class="tick-i">Caterers</span>
+    <span class="tick-i">Decorators</span><span class="tick-i">Choreographers</span>
+    <span class="tick-i">Hindu Weddings</span><span class="tick-i">Muslim Weddings</span>
+    <span class="tick-i">Punjabi Weddings</span><span class="tick-i">Christian Weddings</span>
+    <span class="tick-i">Maharashtrian</span><span class="tick-i">South Indian</span>
+    <span class="tick-i">Mehendi Artists</span><span class="tick-i">Caterers</span>
+    <span class="tick-i">Decorators</span><span class="tick-i">Choreographers</span>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="home">
+  <div class="hero-pat"></div>
+  <div class="aur"><div class="aur-b a1"></div><div class="aur-b a2"></div><div class="aur-b a3"></div></div>
+  <div class="stars-wrap" id="sw"></div>
+  <div id="sparks"></div>
+  <div class="hero-in">
+    <div class="hero-text">
+      <div class="h-eyebrow">
+        <svg class="eyebrow-ico" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="6" width="2.5" height="10" rx="0.5" fill="#F472B6"/>
+          <rect x="11.5" y="6" width="2.5" height="10" rx="0.5" fill="#F472B6"/>
+          <path d="M2,6 Q2,1 8,1 Q14,1 14,6" fill="none" stroke="#F472B6" stroke-width="2" stroke-linecap="round"/>
+          <path d="M2,6 Q5,3.5 8,3 Q11,3.5 14,6" fill="none" stroke="#FDE68A" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+          <circle cx="8" cy="0.8" r="1.8" fill="#FDE68A"/>
+          <path d="M 8,13 Q 6.5,10 7,8 Q 8,6.5 9,8 Q 9.5,10 8,13 Z" fill="#F59E0B" opacity="0.9"/>
+          <rect x="0.5" y="17" width="15" height="1.5" rx="0.5" fill="#F472B6" opacity="0.5"/>
+        </svg>
+        India's Most Innovative Wedding Marketplace
+      </div>
+      <div style="overflow:visible;margin-bottom:1rem;opacity:0;animation:fadeUp .6s ease .6s forwards">
+        <div class="logo logo-hero">
+      <div class="binge-row">
+        <span class="lt lB">B</span><span class="lt li">i</span><span class="lt ln">n</span><span class="lt lg">g</span><span class="lt le">e</span>
+      </div>
+      <div class="line-zone">
+        <div class="the-line"><div class="line-tip"></div><div class="thread"></div></div>
+        <div class="bya-wrap"><span class="bya">ब्या</span><span class="bya-sh">ब्या</span></div>
+      </div>
+      <div class="ur-row">
+        <div class="orn orn-l"></div><span class="ur">ur</span><div class="orn orn-r"></div>
+      </div>
+    </div>
+      </div>
+        <div class="wm-bya-wrap"><div class="wm-bya-thread"></div><span class="wm-bya">ब्या</span>
+          <span class="wm-bya-sh">ब्या</span>
+        </div>
+        <div class="wm-dots"><div class="wm-dot"></div><div class="wm-dot"></div><div class="wm-dot"></div></div>
+      </div>
+      <p class="h-sub">Skip the overpriced packages. Connect directly with local mehendi artists, caterers, decorators, choreographers & more — for every Indian wedding style, in your city.</p>
+      <div class="h-ctas">
+        <a href="#search" class="hc1">Start Planning</a>
+        <a href="#ven" class="hc2">Browse Vendors</a>
+      </div>
+      <div class="h-stats">
+        <div><div class="hstat-v">2,400+</div><div class="hstat-l">Verified Vendors</div></div>
+        <div><div class="hstat-v b">6</div><div class="hstat-l">Wedding Styles</div></div>
+        <div><div class="hstat-v">50+</div><div class="hstat-l">Cities</div></div>
+        <div><div class="hstat-v b">40%</div><div class="hstat-l">Avg. Savings</div></div>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="hero-glow"></div>
+      <!-- Large decorative mandap hero illustration -->
+      <svg width="440" height="480" viewBox="0 0 440 480" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 40px rgba(232,53,122,0.15))">
+        <defs>
+          <linearGradient id="hlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8357A" stop-opacity=".75"/><stop offset="50%" stop-color="#7C3AED" stop-opacity=".6"/><stop offset="100%" stop-color="#1D4ED8" stop-opacity=".75"/></linearGradient>
+          <linearGradient id="hpk" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F472B6" stop-opacity=".7"/><stop offset="100%" stop-color="#E8357A" stop-opacity=".5"/></linearGradient>
+          <linearGradient id="hbl" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#60A5FA" stop-opacity=".7"/><stop offset="100%" stop-color="#1D4ED8" stop-opacity=".5"/></linearGradient>
+          <linearGradient id="hgd" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+          <linearGradient id="hfire" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#F59E0B"/><stop offset="60%" stop-color="#EF4444"/><stop offset="100%" stop-color="#FCD34D" stop-opacity=".15"/></linearGradient>
+        </defs>
+        <!-- Outer Torana arch -->
+        <rect x="80"  y="150" width="22" height="240" rx="4" fill="url(#hlg)"/>
+        <rect x="338" y="150" width="22" height="240" rx="4" fill="url(#hlg)"/>
+        <path d="M 80,150 Q 80,30 220,30 Q 360,30 360,150" fill="none" stroke="url(#hlg)" stroke-width="22" stroke-linecap="round"/>
+        <!-- Inner arch -->
+        <path d="M 106,150 Q 106,60 220,60 Q 334,60 334,150" fill="none" stroke="#7C3AED" stroke-width="4" stroke-linecap="round" opacity=".4"/>
+        <!-- Outermost faint ring -->
+        <path d="M 60,150 Q 60,18 220,18 Q 380,18 380,150" fill="none" stroke="#E8357A" stroke-width="1.5" stroke-linecap="round" opacity=".2" stroke-dasharray="8 6"/>
+
+        <!-- Finials -->
+        <circle cx="91"  cy="146" r="14" fill="url(#hgd)" opacity=".9"/>
+        <circle cx="91"  cy="146" r="20" fill="none" stroke="url(#hgd)" stroke-width="1.5" opacity=".4"/>
+        <circle cx="349" cy="146" r="14" fill="url(#hgd)" opacity=".9"/>
+        <circle cx="349" cy="146" r="20" fill="none" stroke="url(#hgd)" stroke-width="1.5" opacity=".4"/>
+        <circle cx="220" cy="26"  r="18" fill="url(#hgd)" opacity=".95"/>
+        <circle cx="220" cy="26"  r="28" fill="none" stroke="url(#hgd)" stroke-width="2" opacity=".5"/>
+        <circle cx="220" cy="26"  r="38" fill="none" stroke="url(#hgd)" stroke-width="1" opacity=".25"/>
+
+        <!-- Top secondary finials on arch curve -->
+        <circle cx="144" cy="62" r="8" fill="url(#hgd)" opacity=".7"/>
+        <circle cx="296" cy="62" r="8" fill="url(#hgd)" opacity=".7"/>
+
+        <!-- Garland 1 — pink, main -->
+        <path d="M 91,146 Q 128,100 165,90 Q 220,80 275,90 Q 312,100 349,146" fill="none" stroke="url(#hpk)" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="91"  cy="146" r="9"  fill="#F472B6" opacity=".9"/>
+        <circle cx="124" cy="103" r="8"  fill="#FDE68A" opacity=".9"/>
+        <circle cx="161" cy="90"  r="9"  fill="#F472B6" opacity=".9"/>
+        <circle cx="196" cy="83"  r="8"  fill="#FDE68A" opacity=".9"/>
+        <circle cx="220" cy="81"  r="11" fill="#60A5FA" opacity=".9"/>
+        <circle cx="244" cy="83"  r="8"  fill="#FDE68A" opacity=".9"/>
+        <circle cx="279" cy="90"  r="9"  fill="#F472B6" opacity=".9"/>
+        <circle cx="316" cy="103" r="8"  fill="#FDE68A" opacity=".9"/>
+        <circle cx="349" cy="146" r="9"  fill="#F472B6" opacity=".9"/>
+
+        <!-- Garland 2 — blue, secondary -->
+        <path d="M 106,160 Q 138,130 168,122 Q 220,114 272,122 Q 302,130 334,160" fill="none" stroke="url(#hbl)" stroke-width="3.5" stroke-linecap="round" opacity=".7"/>
+        <circle cx="148" cy="126" r="5.5" fill="#60A5FA" opacity=".9"/>
+        <circle cx="220" cy="115" r="7"   fill="#FDE68A" opacity=".9"/>
+        <circle cx="292" cy="126" r="5.5" fill="#60A5FA" opacity=".9"/>
+
+        <!-- Garland 3 — pink, low drape -->
+        <path d="M 106,188 Q 150,164 185,158 Q 220,154 255,158 Q 290,164 334,188" fill="none" stroke="#F472B6" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+
+        <!-- Sacred fire — center base -->
+        <rect x="198" y="370" width="44" height="10" rx="3" fill="#F59E0B" opacity=".6"/>
+        <rect x="206" y="360" width="28" height="14" rx="2.5" fill="#FDE68A" opacity=".45"/>
+        <!-- Flames -->
+        <path d="M 220,360 Q 214,340 217,318 Q 220,302 223,318 Q 226,340 220,360 Z" fill="url(#hfire)">
+          <animateTransform attributeName="transform" type="scale" values="1,1;0.92,1.08;1.06,0.94;1,1" dur="0.7s" repeatCount="indefinite" additive="sum"/>
+        </path>
+        <path d="M 210,360 Q 206,345 207,332 Q 210,322 213,332 Q 215,345 210,360 Z" fill="#F59E0B" opacity=".75">
+          <animateTransform attributeName="transform" type="scale" values="1,1;1.08,0.94;0.94,1.08;1,1" dur="0.55s" repeatCount="indefinite" additive="sum"/>
+        </path>
+        <path d="M 230,360 Q 234,345 233,332 Q 230,322 227,332 Q 225,345 230,360 Z" fill="#F59E0B" opacity=".75">
+          <animateTransform attributeName="transform" type="scale" values="1,1;0.96,1.1;1.1,0.92;1,1" dur="0.8s" repeatCount="indefinite" additive="sum"/>
+        </path>
+        <!-- Flame glow -->
+        <circle cx="220" cy="340" r="12" fill="#FCD34D" opacity=".12">
+          <animate attributeName="r" values="10;16;10" dur="1.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values=".1;.18;.1" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- Stepped base platform -->
+        <rect x="60"  y="395" width="320" height="14" rx="5" fill="url(#hlg)" opacity=".6"/>
+        <rect x="44"  y="408" width="352" height="10" rx="4" fill="url(#hlg)" opacity=".4"/>
+        <rect x="28"  y="417" width="384" height="8"  rx="3" fill="url(#hlg)" opacity=".22"/>
+        <!-- Base dot pattern -->
+        <g fill="url(#hgd)" opacity=".6">
+          <circle cx="76"  cy="402" r="2.5"/><circle cx="104" cy="402" r="2.5"/>
+          <circle cx="132" cy="402" r="2.5"/><circle cx="160" cy="402" r="2.5"/>
+          <circle cx="188" cy="402" r="2.5"/><circle cx="220" cy="402" r="3"/>
+          <circle cx="252" cy="402" r="2.5"/><circle cx="280" cy="402" r="2.5"/>
+          <circle cx="308" cy="402" r="2.5"/><circle cx="336" cy="402" r="2.5"/>
+          <circle cx="364" cy="402" r="2.5"/>
+        </g>
+
+        <!-- Left column decorative bands -->
+        <line x1="80" y1="200" x2="102" y2="200" stroke="url(#hgd)" stroke-width="2" opacity=".5"/>
+        <line x1="80" y1="230" x2="102" y2="230" stroke="url(#hgd)" stroke-width="2" opacity=".5"/>
+        <line x1="80" y1="260" x2="102" y2="260" stroke="url(#hgd)" stroke-width="2" opacity=".5"/>
+        <!-- Right column bands -->
+        <line x1="338" y1="200" x2="360" y2="200" stroke="url(#hgd)" stroke-width="2" opacity=".5"/>
+        <line x1="338" y1="230" x2="360" y2="230" stroke="url(#hgd)" stroke-width="2" opacity=".5"/>
+        <line x1="338" y1="260" x2="360" y2="260" stroke="url(#hgd)" stroke-width="2" opacity=".5"/>
+
+        <!-- Celebration burst sparkles -->
+        <g opacity=".85">
+          <circle cx="44"  cy="180" r="4" fill="#FDE68A"><animate attributeName="r" values="3;5;3" dur="2.2s" repeatCount="indefinite"/></circle>
+          <line x1="44" y1="168" x2="44" y2="162" stroke="#FDE68A" stroke-width="2" stroke-linecap="round"/>
+          <line x1="34" y1="176" x2="28" y2="173" stroke="#FDE68A" stroke-width="2" stroke-linecap="round"/>
+          <line x1="54" y1="172" x2="60" y2="168" stroke="#F472B6" stroke-width="2" stroke-linecap="round"/>
+
+          <circle cx="396" cy="180" r="4" fill="#FDE68A"><animate attributeName="r" values="3;5;3" dur="2.2s" repeatCount="indefinite" begin=".5s"/></circle>
+          <line x1="396" y1="168" x2="396" y2="162" stroke="#FDE68A" stroke-width="2" stroke-linecap="round"/>
+          <line x1="406" y1="176" x2="412" y2="173" stroke="#FDE68A" stroke-width="2" stroke-linecap="round"/>
+          <line x1="386" y1="172" x2="380" y2="168" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/>
+
+          <circle cx="150" cy="310" r="3" fill="#F472B6"><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="290" cy="310" r="3" fill="#60A5FA"><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin=".8s"/></circle>
+          <circle cx="44"  cy="280" r="2.5" fill="#FDE68A"><animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" begin="1.2s"/></circle>
+          <circle cx="396" cy="280" r="2.5" fill="#FDE68A"><animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" begin=".4s"/></circle>
+        </g>
+
+        <!-- Wordmark: replaced by CSS component -->
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<section class="search-s" id="search">
+  <div class="sw">
+    <h2 class="st">Find Vendors for Your <em>Dream Bya</em></h2>
+    <p class="ss">CHOOSE YOUR CITY & WEDDING STYLE — DISCOVER VERIFIED LOCAL VENDORS INSTANTLY</p>
+    <div class="sform">
+      <div class="sfg"><label>📍 Wedding City</label>
+        <select id="cityS">
+          <option value="">Select Your City</option>
+          <option>Mumbai</option><option>Delhi</option><option>Bengaluru</option>
+          <option>Hyderabad</option><option>Chennai</option><option>Kolkata</option>
+          <option>Pune</option><option>Jaipur</option><option>Ahmedabad</option>
+          <option>Lucknow</option><option>Chandigarh</option><option>Surat</option>
+          <option>Kochi</option><option>Coimbatore</option><option>Nagpur</option>
+          <option>Indore</option><option>Amritsar</option><option>Udaipur</option>
+        </select>
+      </div>
+      <div class="sfg"><label>🕌 Wedding Style</label>
+        <select id="styleS">
+          <option value="">Select Wedding Style</option>
+          <option>Hindu Wedding</option><option>Muslim Wedding</option>
+          <option>Punjabi Wedding</option><option>Christian Wedding</option>
+          <option>Maharashtrian Wedding</option><option>South Indian Wedding</option>
+        </select>
+      </div>
+      <button class="sbtn" onclick="doSearch()">Find Vendors →</button>
+    </div>
+  </div>
+</section>
+
+<!-- STYLES -->
+<section class="style-s" id="styles">
+  <div class="etag rv">Wedding Traditions</div>
+  <h2 class="etit rv">Every Indian <em>Wedding Style</em></h2>
+  <div class="ediv"></div>
+  <p class="esub rv">From vibrant Bhangra celebrations to serene South Indian Seemantham — we honour every tradition.</p>
+  <div class="sgrid">
+
+  <!-- CARD 1 -->
+  <div class="sc">
+    <div class="sc-img-wrap">
+      <div class="sc-bg" style="background-image:url('photos/img1.jpeg')"></div>
+    </div>
+    <div class="sc-body">
+      <span class="sc-ico">🪔</span>
+      <div class="sc-name">Hindu Wedding</div>
+      <div class="sc-desc">Sacred fire, seven vows, families united.</div>
+      <div class="sc-n">485 vendors available →</div>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="sc">
+    <div class="sc-img-wrap">
+      <div class="sc-bg" style="background-image:url('photos/img2.jpeg')"></div>
+    </div>
+    <div class="sc-body">
+      <span class="sc-ico">🌙</span>
+      <div class="sc-name">Muslim Wedding</div>
+      <div class="sc-desc">Nikah ceremonies with deep spiritual meaning.</div>
+      <div class="sc-n">312 vendors →</div>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="sc">
+    <div class="sc-img-wrap">
+      <div class="sc-bg" style="background-image:url('photos/img3.jpeg')"></div>
+    </div>
+    <div class="sc-body">
+      <span class="sc-ico">🥁</span>
+      <div class="sc-name">Punjabi Wedding</div>
+      <div class="sc-desc">Dhol beats, bhangra, full energy celebrations.</div>
+      <div class="sc-n">398 vendors →</div>
+    </div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="sc">
+    <div class="sc-img-wrap">
+      <div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552')"></div>
+    </div>
+    <div class="sc-body">
+      <span class="sc-ico">⛪</span>
+      <div class="sc-name">Christian Wedding</div>
+      <div class="sc-desc">Elegant ceremonies with timeless grace.</div>
+      <div class="sc-n">224 vendors →</div>
+    </div>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="sc">
+    <div class="sc-img-wrap">
+      <div class="sc-bg" style="background-image:url('photos/img5.jpeg')"></div>
+    </div>
+    <div class="sc-body">
+      <span class="sc-ico">🌺</span>
+      <div class="sc-name">Maharashtrian</div>
+      <div class="sc-desc">Antarpat, Mangalashtak traditions.</div>
+      <div class="sc-n">276 vendors →</div>
+    </div>
+  </div>
+
+  <!-- CARD 6 -->
+  <div class="sc">
+    <div class="sc-img-wrap">
+      <div class="sc-bg" style="background-image:url('photos/img6.jpeg')"></div>
+    </div>
+    <div class="sc-body">
+      <span class="sc-ico">🌴</span>
+      <div class="sc-name">South Indian</div>
+      <div class="sc-desc">Temple rituals and banana leaf feasts.</div>
+      <div class="sc-n">341 vendors →</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+  <section class="cat-s" id="cats">
+  <div class="etag rv">All Services</div>
+  <h2 class="etit rv">Everything for Your <em>Perfect Day</em></h2><div class="ediv"></div>
+  <p class="esub rv">One platform. Your city. Every vendor you'll ever need.</p>
+  <div class="cgrid">
+    <div class="cc rv"    onclick="openM('customer')"><span class="cc-ico">🎨</span><div class="cc-n">Mehendi Artists</div><div class="cc-c">320+ vendors</div></div>
+    <div class="cc rv d1" onclick="openM('customer')"><span class="cc-ico">🍽️</span><div class="cc-n">Caterers</div><div class="cc-c">480+ vendors</div></div>
+    <div class="cc rv d2" onclick="openM('customer')"><span class="cc-ico">🏨</span><div class="cc-n">Dest. Hotels</div><div class="cc-c">185+ properties</div></div>
+    <div class="cc rv d3" onclick="openM('customer')"><span class="cc-ico">💌</span><div class="cc-n">Invitations</div><div class="cc-c">210+ designers</div></div>
+    <div class="cc rv d4" onclick="openM('customer')"><span class="cc-ico">💃</span><div class="cc-n">Choreographers</div><div class="cc-c">150+ artists</div></div>
+    <div class="cc rv d5" onclick="openM('customer')"><span class="cc-ico">🌸</span><div class="cc-n">Decorators</div><div class="cc-c">390+ vendors</div></div>
+    <div class="cc rv"    onclick="openM('customer')"><span class="cc-ico">👗</span><div class="cc-n">Bridal Clothing</div><div class="cc-c">560+ boutiques</div></div>
+    <div class="cc rv d1" onclick="openM('customer')"><span class="cc-ico">📸</span><div class="cc-n">Photographers</div><div class="cc-c">440+ studios</div></div>
+    <div class="cc rv d2" onclick="openM('customer')"><span class="cc-ico">🎶</span><div class="cc-n">DJ & Music</div><div class="cc-c">280+ artists</div></div>
+    <div class="cc rv d3" onclick="openM('customer')"><span class="cc-ico">💐</span><div class="cc-n">Florists</div><div class="cc-c">320+ vendors</div></div>
+    <div class="cc rv d4" onclick="openM('customer')"><span class="cc-ico">🎂</span><div class="cc-n">Wedding Cakes</div><div class="cc-c">195+ bakers</div></div>
+    <div class="cc rv d5" onclick="openM('customer')"><span class="cc-ico">🗓️</span><div class="cc-n">Wedding Planners</div><div class="cc-c">260+ planners</div></div>
+  </div>
+</section>
+
+<!-- VENDORS -->
+<section class="ven-s" id="ven">
+  <div class="vhd"><div><div class="etag rv">Featured Vendors</div><h2 class="etit rv">Top-Rated Local <em>Vendors</em></h2><div class="ediv"></div></div><button class="nb2" onclick="openM('customer')" style="flex-shrink:0">View All →</button></div>
+  <div class="vgrid">
+    <div class="vc rv"><div class="vc-img">🎨<div class="vbadge">Top Rated</div></div><div class="vbd"><div class="vcat">Mehendi Artist</div><div class="vnm">Shreya Mehndi Art</div><div class="vloc">📍 Mumbai</div><div class="vmeta"><div class="vrat"><span class="vst">★★★★★</span> 4.9 (312)</div><div class="vpr">₹5,000 <span>/ event</span></div></div></div></div>
+    <div class="vc rv d1"><div class="vc-img">🍽️<div class="vbadge">Popular</div></div><div class="vbd"><div class="vcat">Catering Services</div><div class="vnm">Maharaja Caterers</div><div class="vloc">📍 Delhi NCR</div><div class="vmeta"><div class="vrat"><span class="vst">★★★★★</span> 4.8 (580)</div><div class="vpr">₹850 <span>/ plate</span></div></div></div></div>
+    <div class="vc rv d2"><div class="vc-img">💃<div class="vbadge">Trending</div></div><div class="vbd"><div class="vcat">Sangeet Choreographer</div><div class="vnm">Dhak Dhak Dance</div><div class="vloc">📍 Bengaluru</div><div class="vmeta"><div class="vrat"><span class="vst">★★★★☆</span> 4.7 (198)</div><div class="vpr">₹15,000 <span>/ session</span></div></div></div></div>
+    <div class="vc rv"><div class="vc-img">🌸<div class="vbadge">Verified</div></div><div class="vbd"><div class="vcat">Wedding Decorator</div><div class="vnm">Phoolon Ki Baaraat</div><div class="vloc">📍 Jaipur</div><div class="vmeta"><div class="vrat"><span class="vst">★★★★★</span> 4.9 (445)</div><div class="vpr">₹40,000 <span>/ event</span></div></div></div></div>
+    <div class="vc rv d1"><div class="vc-img">💌<div class="vbadge">New</div></div><div class="vbd"><div class="vcat">Invitation Designer</div><div class="vnm">Khush Cards & Co.</div><div class="vloc">📍 Pune</div><div class="vmeta"><div class="vrat"><span class="vst">★★★★☆</span> 4.6 (127)</div><div class="vpr">₹1,200 <span>/ 100 cards</span></div></div></div></div>
+    <div class="vc rv d2"><div class="vc-img">📸<div class="vbadge">Top Rated</div></div><div class="vbd"><div class="vcat">Wedding Photography</div><div class="vnm">Aangan Photography</div><div class="vloc">📍 Chennai</div><div class="vmeta"><div class="vrat"><span class="vst">★★★★★</span> 4.9 (702)</div><div class="vpr">₹35,000 <span>/ day</span></div></div></div></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-s" id="how">
+  <div style="position:relative;z-index:1">
+    <div class="etag rv" style="color:var(--rose-lt)">Simple Process</div>
+    <h2 class="etit rv" style="color:#fff">How <em>Binge ur Bya</em> Works</h2><div class="ediv"></div>
+    <p class="esub rv" style="color:rgba(255,220,235,.45)">Four steps from dream to wedding day</p>
+    <div class="hsteps">
+      <div class="hst rv"><div class="hst-n">📍</div><h3 class="hst-t">Pick Location & Style</h3><p class="hst-d">Choose your city and wedding tradition — from Punjabi to South Indian.</p></div>
+      <div class="hst rv d1"><div class="hst-n">🔍</div><h3 class="hst-t">Browse Vendors</h3><p class="hst-d">Compare verified vendors by category — ratings, prices, portfolios.</p></div>
+      <div class="hst rv d2"><div class="hst-n">💬</div><h3 class="hst-t">Connect Directly</h3><p class="hst-d">No middlemen, no package lock-ins, no hidden costs. Pure direct connection.</p></div>
+      <div class="hst rv d3"><div class="hst-n">✨</div><h3 class="hst-t">Your Dream Wedding!</h3><p class="hst-d">Mix the best local vendors to craft your perfect celebration.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-s" id="why">
+  <div class="why-g">
+    <div class="why-t"><div class="etag rv" style="color:var(--rose-pale)">Why Choose Us</div>
+      <h2 class="etit rv">Stop Burning Money<br>on <em>Packages</em></h2><div class="ediv"></div>
+      <p class="esub rv">Packages charge for what you don't need. We believe your wedding should be exactly, beautifully, uniquely yours.</p>
+      <div class="wfs">
+        <div class="wf rv"><div class="wf-ico">💰</div><div class="wf-txt"><h4>Save Up to 40%</h4><p>No agency cuts, no padding, no surprise invoices.</p></div></div>
+        <div class="wf rv d1"><div class="wf-ico">✅</div><div class="wf-txt"><h4>100% Verified Vendors</h4><p>Manually verified with real Google ratings and genuine reviews.</p></div></div>
+        <div class="wf rv d2"><div class="wf-ico">🎯</div><div class="wf-txt"><h4>Tradition-Specific</h4><p>Vendors who truly specialise in your wedding culture.</p></div></div>
+        <div class="wf rv d3"><div class="wf-ico">📱</div><div class="wf-txt"><h4>Full Transparency</h4><p>Portfolios, exact pricing, real ratings — before committing.</p></div></div>
+      </div>
+    </div>
+    <div class="wcards rv">
+      <div class="wc"><div class="wc-v">₹2.4L</div><div class="wc-l">Average savings per wedding vs package deals</div></div>
+      <div class="wc"><div class="wc-v">4.8★</div><div class="wc-l">Average vendor rating</div></div>
+      <div class="wc"><div class="wc-v">96%</div><div class="wc-l">Happy couples</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="tsti-s">
+  <div class="etag rv">Real Stories</div>
+  <h2 class="etit rv">Couples Who Found Their <em>Dream Wedding</em></h2><div class="ediv"></div>
+  <div class="tgrid">
+    <div class="tc rv"><div class="tc-q">"</div><div class="tc-st">★★★★★</div><p class="tc-tx">We saved ₹3 lakhs vs the hotel package. Our mehendi artist from Binge ur Bya was absolutely phenomenal — exactly our vibe!</p><div class="tc-auth"><div class="tc-avt">👰</div><div><div class="tc-nm">Priya & Rahul Sharma</div><div class="tc-ci">Hindu Wedding · Mumbai, 2024</div></div></div></div>
+    <div class="tc rv d1"><div class="tc-q">"</div><div class="tc-st">★★★★★</div><p class="tc-tx">The choreographer turned our Sangeet into absolute fire. As a Punjabi family we wanted the full dhol-bhangra experience — delivered 200%!</p><div class="tc-auth"><div class="tc-avt">🤵</div><div><div class="tc-nm">Harpreet & Simran Kaur</div><div class="tc-ci">Punjabi Wedding · Chandigarh, 2024</div></div></div></div>
+    <div class="tc rv d2"><div class="tc-q">"</div><div class="tc-st">★★★★★</div><p class="tc-tx">Our decorator understood South Indian traditions perfectly. Beautiful results at half the price of any package we were quoted.</p><div class="tc-auth"><div class="tc-avt">👩‍❤️‍👨</div><div><div class="tc-nm">Deepa & Karthik Iyer</div><div class="tc-ci">South Indian Wedding · Bengaluru, 2024</div></div></div></div>
+  </div>
+</section>
+
+<!-- LOGIN -->
+<section class="login-s" id="login">
+  <div style="text-align:center"><div class="etag rv" style="color:var(--rose-lt);display:flex;justify-content:center">Join Us</div>
+    <h2 class="etit rv" style="color:#fff;text-align:center">The <em>Bya</em> Community</h2>
+    <div class="ediv" style="margin:1.2rem auto"></div>
+    <p class="esub rv" style="margin:0 auto;text-align:center;color:rgba(255,220,235,.4)">Three ways to be part of India's most innovative wedding platform</p>
+  </div>
+  <div class="lgrid">
+    <div class="lc rv" onclick="openM('customer')"><span class="l-ico">👰</span><div class="l-ti">Customer Login</div><div class="l-de">Plan your wedding, browse vendors, save favourites.</div><a class="l-btn">Sign In / Register</a></div>
+    <div class="lc rv d1" onclick="openM('vendor')"><span class="l-ico">🏪</span><div class="l-ti">Vendor Login</div><div class="l-de">Showcase your work and connect with couples in your city.</div><a class="l-btn">Sign In / Register</a></div>
+    <div class="lc rv d2" onclick="openM('admin')"><span class="l-ico">🛡️</span><div class="l-ti">Admin Portal</div><div class="l-de">Platform management, verification & analytics.</div><a class="l-btn">Admin Access</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fgrid">
+    <div>
+      <a href="#" style="text-decoration:none;display:block;overflow:visible;margin-bottom:1rem">
+        <div class="logo logo-ft">
+      <div class="binge-row">
+        <span class="lt lB">B</span><span class="lt li">i</span><span class="lt ln">n</span><span class="lt lg">g</span><span class="lt le">e</span>
+      </div>
+      <div class="line-zone">
+        <div class="the-line"><div class="line-tip"></div><div class="thread"></div></div>
+        <div class="bya-wrap"><span class="bya">ब्या</span><span class="bya-sh">ब्या</span></div>
+      </div>
+      <div class="ur-row">
+        <div class="orn orn-l"></div><span class="ur">ur</span><div class="orn orn-r"></div>
+      </div>
+    </div>
+      </a>
+      <p class="fdesc">India's most innovative wedding marketplace — connect directly with local vendors. No packages. Just your dream celebration.</p>
+      <div class="fsocs" style="margin-top:1.3rem"><a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a></div>
+    </div>
+    <div class="fcol"><h4>Wedding Styles</h4><ul class="fls"><li><a href="#">Hindu Weddings</a></li><li><a href="#">Muslim Weddings</a></li><li><a href="#">Punjabi Weddings</a></li><li><a href="#">Christian Weddings</a></li><li><a href="#">Maharashtrian</a></li><li><a href="#">South Indian</a></li></ul></div>
+    <div class="fcol"><h4>Services</h4><ul class="fls"><li><a href="#">Mehendi Artists</a></li><li><a href="#">Caterers</a></li><li><a href="#">Decorators</a></li><li><a href="#">Photographers</a></li><li><a href="#">Choreographers</a></li><li><a href="#">Planners</a></li></ul></div>
+    <div class="fcol"><h4>Company</h4><ul class="fls"><li><a href="#">About Us</a></li><li><a href="#">List Business</a></li><li><a href="#">Blog</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="fbot">
+    <div class="fcopy">© 2025 Binge ur Bya · Celebrating every Indian wedding</div>
+    <div style="font-family:var(--fu);font-size:.68rem;color:rgba(255,220,235,.18)">बिंगे ur ब्या · जहाँ उत्सव शुरू होता है</div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="mov" id="mov" onclick="closeM(event)">
+  <div class="modal">
+    <button class="mclose" onclick="closeModal()">✕</button>
+    <div id="mc"></div>
+  </div>
+</div>
+
+<button class="fab" onclick="document.getElementById('search').scrollIntoView({behavior:'smooth'})">✦</button>
+
+<script>
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('pl').classList.add('out'),3000));
+
+const ca=document.getElementById('ca'),cb=document.getElementById('cb');
+let mx=0,my=0,bx=0,by=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;ca.style.left=mx+'px';ca.style.top=my+'px'});
+(function anim(){bx+=(mx-bx)*.11;by+=(my-by)*.11;cb.style.left=bx+'px';cb.style.top=by+'px';requestAnimationFrame(anim)})();
+document.querySelectorAll('a,button,[onclick],.vc,.cc,.sc,.lc,.tc').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cb.style.transform='translate(-50%,-50%) scale(1.7)';cb.style.borderColor='rgba(232,53,122,.8)'});
+  el.addEventListener('mouseleave',()=>{cb.style.transform='translate(-50%,-50%) scale(1)';cb.style.borderColor='rgba(232,53,122,.5)'});
+});
+
+// Stars
+const sw=document.getElementById('sw');
+for(let i=0;i<60;i++){
+  const s=document.createElement('div');
+  const sz=Math.random()*2+.5;
+  s.style.cssText=`position:absolute;width:${sz}px;height:${sz}px;border-radius:50%;left:${Math.random()*100}%;top:${Math.random()*100}%;background:${Math.random()<.5?'#F472B6':'#60A5FA'};opacity:0;animation:twk ${Math.random()*4+2}s ${Math.random()*5}s linear infinite`;
+  sw.appendChild(s);
+}
+const st=document.createElement('style');
+st.textContent='@keyframes twk{0%,100%{opacity:0;transform:scale(0)}50%{opacity:.8;transform:scale(1)}}';
+document.head.appendChild(st);
+
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('on',scrollY>60));
+function toggleMenu(){document.getElementById('nav').classList.toggle('menu-open')}
+
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+function doSearch(){
+  if(!document.getElementById('cityS').value||!document.getElementById('styleS').value){alert('Please select both a city and a wedding style!');return}
+  openM('customer');
+}
+
+function openM(t){
+  const cfg={
+    customer:{ico:'👰',title:'Welcome Back',sub:'Sign in to plan your dream wedding',tabs:['Login','Register']},
+    vendor:{ico:'🏪',title:'Vendor Portal',sub:'Grow your business with Binge ur Bya',tabs:['Login','Register Business']},
+    admin:{ico:'🛡️',title:'Admin Access',sub:'Secure administrative portal',tabs:['Admin Login']}
+  };
+  const c=cfg[t];
+  document.getElementById('mc').innerHTML=`
+    <div class="m-ico">${c.ico}</div><h2>${c.title}</h2><p class="m-sub">${c.sub}</p>
+    <div class="mtabs">${c.tabs.map((tab,i)=>`<button class="mtab ${i===0?'on':''}" onclick="this.parentElement.querySelectorAll('.mtab').forEach(x=>x.classList.remove('on'));this.classList.add('on')">${tab}</button>`).join('')}</div>
+    <div class="mf"><label>Email Address</label><input type="email" placeholder="you@example.com"/></div>
+    <div class="mf"><label>Password</label><input type="password" placeholder="••••••••"/></div>
+    ${t==='vendor'?'<div class="mf"><label>Business Name</label><input type="text" placeholder="Your Business Name"/></div>':''}
+    <button class="msub">Continue →</button>
+  `;
+  document.getElementById('mov').classList.add('on');
+}
+function closeModal(){document.getElementById('mov').classList.remove('on')}
+function closeM(e){if(e.target===document.getElementById('mov'))closeModal()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+</script>
+
+<script src="main.js"></script>
+</body>
+</html>
